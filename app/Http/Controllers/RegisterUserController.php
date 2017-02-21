@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\NewRegisterUser;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Log;
 
@@ -15,8 +16,13 @@ class RegisterUserController extends Controller
         $user->name ="Oscar";
         $user->email ="Oscar@duran.com";
 
-        Log::info("prova");
+        Log::info("Before Event");
 
-        event(new NewRegisterUser);
+        event(new Registered($user));
+
+        Log::info("After Event");
+
+        dump("Done!");
+
     }
 }

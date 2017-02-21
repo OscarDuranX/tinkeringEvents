@@ -1,4 +1,4 @@
-d comp<?php
+<?php
 
 return [
 
